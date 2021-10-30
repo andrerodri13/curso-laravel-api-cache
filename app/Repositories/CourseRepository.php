@@ -34,7 +34,7 @@ class CourseRepository
 
     public function getCourseByUuid(string $identify)
     {
-        return $this->entity->where('UUID', $identify)->firstOrFail();
+        return $this->entity->where('uuid', $identify)->firstOrFail();
     }
 
     public function deleteCourseByUuid(string $identify)
@@ -43,10 +43,10 @@ class CourseRepository
         return $course->delete();
     }
 
-    public function updateCourseByUuid(string $identify, array $dados)
+    public function updateCourseByUuid(string $identify, array $data)
     {
         $course = $this->getCourseByUuid($identify);
-        return $course->update($dados);
+        return $course->update($data);
     }
 
 }

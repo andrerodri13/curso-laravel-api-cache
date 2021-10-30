@@ -1,8 +1,11 @@
 <?php
 
 use App\Http\Controllers\Api\CourseController;
+use App\Http\Controllers\Api\ModuleController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
+Route::apiResource('/courses/{courses}/modules', ModuleController::class);
 
 Route::put('/courses/{course}', [CourseController::class, 'update']);
 Route::delete('/courses/{identify}', [CourseController::class, 'destroy']);
