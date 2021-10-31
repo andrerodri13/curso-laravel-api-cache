@@ -6,6 +6,7 @@ namespace App\Repositories;
 
 use App\Models\Course;
 use App\Models\Module;
+use Illuminate\Support\Facades\Cache;
 
 class ModuleRepository
 {
@@ -54,6 +55,7 @@ class ModuleRepository
     {
         $data['course_id'] = $course;
         $module = $this->getModuleByUuid($identify);
+        Cache::forget('courses');
         return $module->update($data);
     }
 
